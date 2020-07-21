@@ -3,6 +3,7 @@ package com.example.customautocompleteexample;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.AutoCompleteTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fillCountryList();
+
+        AutoCompleteTextView editText = findViewById(R.id.actv);
+        AutoCompleteCountryAdapter adapter = new AutoCompleteCountryAdapter(this,countryList);
+        editText.setAdapter(adapter);
+
     }
 
     private void fillCountryList(){
